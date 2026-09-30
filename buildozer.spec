@@ -1,14 +1,13 @@
 [app]
 
-title = Polski Asystent Predkosci
-
+title = Polski Asystent Predkosc
 package.name = asystentpredkosci
 package.domain = org.vadim
 
 source.include_exts = py,png,jpg,kv,atlas
 source.dir = .
 
-version = 1.0
+version = 1.1
 
 requirements = python3,kivy,requests,plyer,pyjnius
 
