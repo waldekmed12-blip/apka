@@ -10,7 +10,7 @@ source.dir = .
 
 version = 1.0
 
-requirements = python3,kivy,requests,urllib3,idna,certifi,normalizer-charset-detector,plyer,pyjnius
+requirements = python3,kivy,requests,plyer,pyjnius
 
 orientation = portrait
 osx.python_version = 3
