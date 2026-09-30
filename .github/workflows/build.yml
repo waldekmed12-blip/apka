@@ -28,9 +28,10 @@ jobs:
 
       - name: Accept Android SDK licenses
         run: |
-          mkdir -p ~/.android
-          echo "### License accepted by GitHub Actions" > ~/.android/repositories.cfg
-          yes | sdkmanager --licenses || true
+          mkdir -p $HOME/.android
+          touch $HOME/.android/repositories.cfg
+          # Automatyczna akceptacja licencji dla budowania
+          yes | buildozer android p4a || true
 
       - name: Build with Buildozer
         run: buildozer -v android debug
