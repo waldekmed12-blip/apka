@@ -19,9 +19,9 @@ fullscreen = 0
 
 android.permissions = INTERNET,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION,WAKE_LOCK
 
-android.api = 31
+android.api = 33
 android.minapi = 21
-android.sdk = 31
+android.sdk = 33
 android.ndk = 25b
 android.private_storage = True
 
