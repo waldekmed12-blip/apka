@@ -1,4 +1,4 @@
-name: Build and Upload
+name: Build Android App with Buildozer
 
 on:
   push:
@@ -14,21 +14,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Przykład dla Node.js (dostosuj do swojego języka/frameworka, np. Python, Java itp.)
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.10'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Buildozer and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+          pip install --upgrade pip
+          pip install buildozer Cython==0.29.33
 
-      - name: Build project
-        run: npm run build
+      - name: Build with Buildozer
+        run: buildozer -v android debug
 
-      # KLUCZOWA ZMIANA: upload-artifact w wersji v4
-      - name: Upload build artifacts
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: compiled-app
-          path: dist/  # Wskaż ścieżkę do wygenerowanych plików w swoim projekcie
+          name: paczka-apk
+          path: bin/*.apk
